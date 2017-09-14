@@ -1,0 +1,61 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 163px;
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 100px;
+
+  &-container {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: stretch;
+    top: 63px;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-card {
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 1em;
+    &:hover {
+      box-shadow: 0 5px 15px @hover-shadow, 0 0 0 1px @card-shadow;
+    }
+    &-twitter {
+      width: 100%;
+      height: auto;
+      margin: 1em;
+    }
+  }
+
+  &__twitter-feed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1025px), print {
+  .home {
+    top: 0;
+    height: calc(~"100% - 163px");
+    flex-direction: row;
+    z-index: 1;
+
+    &-card {
+      &:hover {
+        cursor: pointer;
+        z-index: 101;
+        transform: scale(1.25, 1.25);
+      }
+    }
+  }
+}

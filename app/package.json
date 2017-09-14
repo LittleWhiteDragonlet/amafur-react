@@ -1,0 +1,109 @@
+{
+  "name": "rsteg-com-app",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3030",
+  "scripts": {
+    "assets:dev": "cp -R public/* dev/",
+    "assets:build": "cp -R public/* build/",
+    "html:dev": "pug src/html -o dev -w",
+    "html:build": "pug src/html -o build",
+    "bundle:dev": "webpack-dev-server",
+    "bundle:build": "webpack",
+    "prestart": "rm -rf dev && mkdir dev",
+    "start": "npm-run-all --parallel html:dev assets:dev bundle:dev",
+    "prebuild": "rm -rf build && mkdir build",
+    "build": "npm-run-all --parallel html:build assets:build bundle:build",
+    "staging": "rm -rf ../server/build && mv build ../server/build",
+    "build:staging": "npm-run-all --serial build staging"
+  },
+  "dependencies": {
+    "bulma": "^0.4.3",
+    "date-fns": "^2.0.0-alpha.1",
+    "moment": "^2.18.1",
+    "ramda": "^0.23.0",
+    "react": "^15.5.4",
+    "react-addons-shallow-compare": "^15.5.2",
+    "react-avatar-editor": "^9.1.1",
+    "react-color": "^2.12.0",
+    "react-copy-to-clipboard": "^5.0.0",
+    "react-dom": "^15.5.4",
+    "react-markdown": "^2.5.0",
+    "react-redux": "^5.0.3",
+    "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0",
+    "react-router-redux": "^5.0.0-alpha.4",
+    "react-share": "^1.13.2",
+    "react-simplemde-editor": "^3.6.11",
+    "redux": "^3.6.0",
+    "redux-form": "^6.6.3",
+    "redux-observable": "^0.14.1",
+    "redux-persist": "^4.6.0",
+    "rxjs": "^5.2.0",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.68.3",
+    "socket.io-client": "^2.0.1",
+    "superagent": "^3.5.2",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "18.0.0",
+    "babel-loader": "^7.0.0-beta.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-runtime": "^6.20.0",
+    "css-loader": "^0.28.0",
+    "dotenv-webpack": "^1.5.3",
+    "eslint": "3.16.1",
+    "eslint-loader": "^1.7.0",
+    "eslint-plugin-react": "^7.1.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
+    "http-proxy-middleware": "0.17.3",
+    "jest": "18.1.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "less-plugin-autoprefix": "^1.5.1",
+    "npm-run-all": "^4.0.2",
+    "postcss-loader": "^1.3.3",
+    "pug-cli": "^1.0.0-alpha6",
+    "style-loader": "^0.16.1",
+    "sw-precache": "^5.1.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.4.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^@components(.*)$": "<rootDir>/src/js/components$1",
+      "^@elements(.*)$": "<rootDir>/src/js/elements$1",
+      "^@pages(.*)$": "<rootDir>/src/js/pages$1",
+      "^@actions(.*)$": "<rootDir>/src/js/redux/actions$1",
+      "^@utils(.*)$": "<rootDir>/src/js/utils$1"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.blog {
+  display: flex;
+  position: absolute;
+  top: 63px;
+  height: calc(~"100% - 163px");
+  overflow-y: auto;
+  flex-direction: column;
+  width: 100%;
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    & > form {
+      margin-bottom: 25px;
+    }
+  }
+
+  &-row {
+    & > a {
+      text-decoration: none;
+    }
+  }
+  &-post {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    & > div {
+      & > p {
+        & > img {
+          max-width: 50%;
+        }
+      }
+    }
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+  }
+}

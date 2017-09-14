@@ -1,0 +1,29 @@
+.avatar-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.editable {
+  cursor: pointer;
+  border: 4px dashed rgb(153, 153, 153);
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-radius: 10px;
+  padding: 1rem;
+  &:hover {
+    border-color: rgb(187, 187, 187);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  }
+}
+
+@media (max-width:768px)  {
+  .editable {
+    align-self: center;
+    margin: 1vh 1vw;
+  }
+}
